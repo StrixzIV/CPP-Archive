@@ -17,6 +17,9 @@
 #include "Dog.hpp"
 
 int main() {
+
+    // This will be illegal by implementation
+    // const Animal *animal_test = new Animal();
     
     std::cout << "---------- Constructor ----------" << std::endl;
     const Animal* dog = new Dog();

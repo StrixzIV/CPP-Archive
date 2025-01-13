@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 16:42:20 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 22:18:40 by jikaewsi         ###   ########.fr       */
+/*   Created: 2025/01/14 00:09:12 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/01/14 00:12:17 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "ICharacter.hpp"
 
-# include <iostream>
+ICharacter::ICharacter() {
+	std::cout << "ICharacter created with default constructor" << std::endl;
+}
 
-class Brain {
+ICharacter::ICharacter(const ICharacter &base) {
+	*this = base;
+	std::cout << "ICharacter copied" << std::endl;
+}
 
-	private:
-		std::string _ideas[100];
+const ICharacter &ICharacter::operator=(const ICharacter &lhs) {
 
-	public:
+	(void) lhs;
+	std::cout << "ICharacter copy assignment called" << std::endl;
 
-		Brain();
-		Brain(const Brain &base);
-		Brain &operator=(const Brain &lhs);
-		~Brain();
+	return (*this);
 
-		const std::string &get_idea(const int &idx) const;
-		void set_idea(const std::string &idea, const int idx);
-
-};
-
-#endif
+}

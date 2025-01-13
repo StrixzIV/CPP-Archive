@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 16:42:20 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 22:18:40 by jikaewsi         ###   ########.fr       */
+/*   Created: 2025/01/13 23:44:32 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/01/14 00:13:57 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef I_MATERIA_SOURCE_HPP
+# define I_MATERIA_SOURCE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Brain {
+class IMateriaSource {
 
-	private:
-		std::string _ideas[100];
+	protected:
+
+		IMateriaSource();
+		IMateriaSource(const IMateriaSource &base);
+		const IMateriaSource &operator=(const IMateriaSource &lhs);
 
 	public:
 
-		Brain();
-		Brain(const Brain &base);
-		Brain &operator=(const Brain &lhs);
-		~Brain();
+		virtual ~IMateriaSource() {}
 
-		const std::string &get_idea(const int &idx) const;
-		void set_idea(const std::string &idea, const int idx);
+		virtual void learnMateria(AMateria *materia) = 0;
+		virtual AMateria *createMateria(const std::string &type) = 0;
 
 };
 

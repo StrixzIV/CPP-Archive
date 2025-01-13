@@ -5,39 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 01:06:22 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/11 01:06:22 by jikaewsi         ###   ########.fr       */
+/*   Created: 2025/01/11 01:44:19 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/01/11 01:44:19 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
-# include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog: public Animal {
+class Animal {
 
-    private:
-        Brain *_brain;
+    protected:
+        
+        std::string _type;
+        
+        Animal();
+		Animal(const std::string &animal_type);
+		Animal(const Animal &base);
 
     public:
 
-        Dog();
-		Dog(const Dog &base);
-		Dog &operator=(const Dog &lhs);
-		~Dog();
+		Animal &operator=(const Animal &lhs);
+		virtual ~Animal();
 
         const std::string &getType() const;
-        void setType(const std::string &dog_type);
+        void setType(const std::string &animal_type);
 
-        Brain &getBrain() const;
-        void setBrain(const Brain &brain);
-
-        void makeSound() const;
+        virtual Brain &getBrain() const = 0;
+        virtual void makeSound() const;
 
 };
 
 #endif
-

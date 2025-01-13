@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 16:42:20 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 22:18:40 by jikaewsi         ###   ########.fr       */
+/*   Created: 2025/01/13 23:48:02 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/01/14 00:05:11 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef I_CHARACTER_HPP
+# define I_CHARACTER_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
 
-class Brain {
+class ICharacter {
 
-	private:
-		std::string _ideas[100];
+	protected:
+
+		ICharacter();
+		ICharacter(const ICharacter &base);
+		const ICharacter &operator=(const ICharacter &lhs);
 
 	public:
 
-		Brain();
-		Brain(const Brain &base);
-		Brain &operator=(const Brain &lhs);
-		~Brain();
+		virtual ~ICharacter() {}
 
-		const std::string &get_idea(const int &idx) const;
-		void set_idea(const std::string &idea, const int idx);
+		virtual const std::string &getName() const = 0;
+
+		virtual void equip(AMateria *materia) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter &target) = 0;
 
 };
 

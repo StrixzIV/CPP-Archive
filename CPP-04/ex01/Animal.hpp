@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal {
 
@@ -31,6 +32,7 @@ class Animal {
         const std::string &getType() const;
         void setType(const std::string &animal_type);
 
+        virtual Brain &getBrain() const = 0;
         virtual void makeSound() const;
 
 };

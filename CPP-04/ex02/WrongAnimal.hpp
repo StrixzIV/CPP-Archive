@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 01:06:22 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/11 01:06:22 by jikaewsi         ###   ########.fr       */
+/*   Created: 2025/01/11 01:44:09 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/01/11 01:44:09 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONG_ANIMAL_HPP
+# define WRONG_ANIMAL_HPP
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
 
-class Dog: public Animal {
+class WrongAnimal {
 
-    private:
-        Brain *_brain;
+    protected:
+        std::string _type;
 
     public:
 
-        Dog();
-		Dog(const Dog &base);
-		Dog &operator=(const Dog &lhs);
-		~Dog();
+        WrongAnimal();
+		WrongAnimal(const std::string &animal_type);
+		WrongAnimal(const WrongAnimal &base);
+		WrongAnimal &operator=(const WrongAnimal &lhs);
+		virtual ~WrongAnimal();
 
         const std::string &getType() const;
-        void setType(const std::string &dog_type);
-
-        Brain &getBrain() const;
-        void setBrain(const Brain &brain);
+        void setType(const std::string &animal_type);
 
         void makeSound() const;
 
 };
 
 #endif
-
