@@ -3,12 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 23:42:42 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 23:59:34 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/14 02:20:07 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Character.hpp"
+#include "ICharacter.hpp"
+
+#include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
+
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main() {
 

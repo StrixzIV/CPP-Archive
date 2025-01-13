@@ -5,7 +5,7 @@ SOURCE_PATH =
 INCLUDE_PATH = 
 BUILD_PATH = build
 
-CXXFILES = Animal.cpp  Brain.cpp Cat.cpp  Dog.cpp  WrongAnimal.cpp  WrongCat.cpp  main.cpp
+CXXFILES = AMateria.cpp  Character.cpp  Cure.cpp  ICharacter.cpp  IMateriaSource.cpp  Ice.cpp  MateriaSource.cpp  main.cpp
 
 NAME = materia
 
