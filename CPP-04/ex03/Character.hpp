@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 00:17:53 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/14 00:24:09 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:24:28 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Character: public ICharacter {
 		Character();
 		Character(const std::string &name);
 		Character(const Character &base);
-		const Character &operator=(const Character &lhs);
+		const Character &operator=(const Character &rhs);
 		~Character();
 
 		const std::string &getName() const;

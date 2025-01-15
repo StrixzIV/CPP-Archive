@@ -26,7 +26,7 @@ class Dog: public Animal {
         Dog();
 		Dog(const std::string &dog_type);
 		Dog(const Dog &base);
-		Dog &operator=(const Dog &lhs);
+		Dog &operator=(const Dog &rhs);
 		~Dog();
 
         const std::string &getType() const;

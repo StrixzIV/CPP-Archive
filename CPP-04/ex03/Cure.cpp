@@ -20,8 +20,8 @@ Cure::Cure(const Cure &base): AMateria(base) {
     std::cout << "Cure materia copied" << std::endl;
 }
 
-const Cure &Cure::operator=(const Cure &lhs) {
-    this->_type = std::string(lhs._type);
+const Cure &Cure::operator=(const Cure &rhs) {
+    this->_type = std::string(rhs._type);
     return (*this);
 }
 

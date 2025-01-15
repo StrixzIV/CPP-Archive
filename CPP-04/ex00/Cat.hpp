@@ -26,7 +26,7 @@ class Cat: public Animal {
         Cat();
 		Cat(const std::string &cat_type);
 		Cat(const Cat &base);
-		Cat &operator=(const Cat &lhs);
+		Cat &operator=(const Cat &rhs);
 		~Cat();
 
         const std::string &getType() const;

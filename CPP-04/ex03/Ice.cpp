@@ -20,8 +20,8 @@ Ice::Ice(const Ice &base): AMateria(base) {
     std::cout << "Ice materia copied" << std::endl;
 }
 
-const Ice &Ice::operator=(const Ice &lhs) {
-    this->_type = std::string(lhs._type);
+const Ice &Ice::operator=(const Ice &rhs) {
+    this->_type = std::string(rhs._type);
     return (*this);
 }
 
@@ -34,5 +34,5 @@ AMateria *Ice::clone() const {
 }
 
 void Ice::use(ICharacter &target) {
-    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+    std::cout << "* shoot an ice bolt at " << target.getName() << " *" << std::endl;
 }

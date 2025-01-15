@@ -12,8 +12,7 @@
 
 #include "Cat.hpp"
 
-Cat::Cat() {
-    this->_type = "Cat";
+Cat::Cat(): Animal("Cat") {
     std::cout << "Cat(from Animal) of type \"" << this->_type << "\" is being created with default constructor." << std::endl;
 }
 
@@ -27,9 +26,9 @@ Cat::Cat(const Cat &base): Animal(base) {
     std::cout << "Cat(from Animal) of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &lhs) {
+Cat &Cat::operator=(const Cat &rhs) {
 
-    Animal::operator=(lhs);
+    Animal::operator=(rhs);
     std::cout << "Cat(from Animal) of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 
     return (*this);

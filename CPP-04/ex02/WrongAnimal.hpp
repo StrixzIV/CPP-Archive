@@ -25,7 +25,7 @@ class WrongAnimal {
         WrongAnimal();
 		WrongAnimal(const std::string &animal_type);
 		WrongAnimal(const WrongAnimal &base);
-		WrongAnimal &operator=(const WrongAnimal &lhs);
+		WrongAnimal &operator=(const WrongAnimal &rhs);
 		virtual ~WrongAnimal();
 
         const std::string &getType() const;

@@ -22,16 +22,16 @@ Cat::Cat(const Cat &base): Animal(base) {
     std::cout << "Cat(from Animal) of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &lhs) {
+Cat &Cat::operator=(const Cat &rhs) {
 
-    if (this == &lhs) {
+    if (this == &rhs) {
         return (*this);
     }
 
-    Animal::operator=(lhs);
+    Animal::operator=(rhs);
 
     delete this->_brain;    
-    this->_brain = new Brain(*lhs._brain);
+    this->_brain = new Brain(*rhs._brain);
 
     std::cout << "Cat(from Animal) of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 

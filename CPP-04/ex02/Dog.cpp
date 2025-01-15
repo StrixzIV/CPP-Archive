@@ -22,16 +22,16 @@ Dog::Dog(const Dog &base): Animal(base) {
     std::cout << "Dog(from Animal) of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &lhs) {
+Dog &Dog::operator=(const Dog &rhs) {
 
-    if (this == &lhs) {
+    if (this == &rhs) {
         return (*this);
     }
 
-    Animal::operator=(lhs);
+    Animal::operator=(rhs);
 
     delete this->_brain;    
-    this->_brain = new Brain(*lhs._brain);
+    this->_brain = new Brain(*rhs._brain);
 
     std::cout << "Dog(from Animal) of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 

@@ -28,14 +28,14 @@ class Animal {
 
     public:
 
-		Animal &operator=(const Animal &lhs);
+		Animal &operator=(const Animal &rhs);
 		virtual ~Animal();
 
         const std::string &getType() const;
         void setType(const std::string &animal_type);
 
         virtual Brain &getBrain() const = 0;
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
 
 };
 

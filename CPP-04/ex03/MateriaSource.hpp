@@ -24,7 +24,7 @@ class MateriaSource: public IMateriaSource {
 
         MateriaSource();
         MateriaSource(const MateriaSource &base);
-        const MateriaSource &operator=(const MateriaSource &lhs);
+        const MateriaSource &operator=(const MateriaSource &rhs);
         ~MateriaSource();
 
         bool isInLearningSlot(AMateria *materia);

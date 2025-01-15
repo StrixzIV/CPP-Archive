@@ -36,8 +36,8 @@ Character::Character(const Character &base): ICharacter(base), _inventory() {
 
 }
 
-const Character &Character::operator=(const Character &lhs) {
-    this->_name = lhs._name;
+const Character &Character::operator=(const Character &rhs) {
+    this->_name = rhs._name;
     return (*this);
 }
 

@@ -22,7 +22,7 @@ class Ice: public AMateria {
 
         Ice();
         Ice(const Ice &base);
-        const Ice &operator=(const Ice &lhs);
+        const Ice &operator=(const Ice &rhs);
         ~Ice();
 
         virtual AMateria *clone() const;

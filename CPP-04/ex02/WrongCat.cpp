@@ -12,7 +12,7 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat(): WrongAnimal("WrongCat") {
     this->_type = "Cat";
     std::cout << "WrongCat(from WrongAnimal) of type \"" << this->_type << "\" is being created with default constructor." << std::endl;
 }
@@ -27,9 +27,9 @@ WrongCat::WrongCat(const WrongCat &base): WrongAnimal(base) {
     std::cout << "WrongCat(from WrongAnimal) of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &lhs) {
+WrongCat &WrongCat::operator=(const WrongCat &rhs) {
 
-    WrongAnimal::operator=(lhs);
+    WrongAnimal::operator=(rhs);
     std::cout << "WrongCat(from WrongAnimal) of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 
     return (*this);

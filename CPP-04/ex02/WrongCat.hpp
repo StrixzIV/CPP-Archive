@@ -26,7 +26,7 @@ class WrongCat: public WrongAnimal {
         WrongCat();
 		WrongCat(const std::string &cat_type);
 		WrongCat(const WrongCat &base);
-		WrongCat &operator=(const WrongCat &lhs);
+		WrongCat &operator=(const WrongCat &rhs);
 		~WrongCat();
 
         const std::string &getType() const;

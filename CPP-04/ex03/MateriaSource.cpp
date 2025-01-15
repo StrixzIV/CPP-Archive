@@ -28,8 +28,8 @@ MateriaSource::MateriaSource(const MateriaSource &base): IMateriaSource(base), _
 
 }
 
-const MateriaSource &MateriaSource::operator=(const MateriaSource &lhs) {
-    (void) lhs;
+const MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
+    (void) rhs;
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 23:52:32 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 23:59:23 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:27:32 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ AMateria::AMateria(const AMateria &base) {
 	std::cout << "AMateria copied" << std::endl;
 }
 
-const AMateria &AMateria::operator=(const AMateria &lhs) {
-	this->_type = std::string(lhs._type);
+const AMateria &AMateria::operator=(const AMateria &rhs) {
+	this->_type = std::string(rhs._type);
 	std::cout << "AMateria copy assignment called" << std::endl;
 	return (*this);
 }

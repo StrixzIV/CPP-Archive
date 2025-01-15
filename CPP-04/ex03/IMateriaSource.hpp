@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 23:44:32 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/14 00:13:57 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:24:28 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class IMateriaSource {
 
 		IMateriaSource();
 		IMateriaSource(const IMateriaSource &base);
-		const IMateriaSource &operator=(const IMateriaSource &lhs);
+		const IMateriaSource &operator=(const IMateriaSource &rhs);
 
 	public:
 

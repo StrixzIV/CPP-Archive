@@ -22,7 +22,7 @@ class Cure: public AMateria {
 
         Cure();
         Cure(const Cure &base);
-        const Cure &operator=(const Cure &lhs);
+        const Cure &operator=(const Cure &rhs);
         ~Cure();
 
         virtual AMateria *clone() const;

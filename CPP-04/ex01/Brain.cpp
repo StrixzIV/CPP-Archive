@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:47:46 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 22:22:09 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:27:32 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ Brain::~Brain() {
 	std::cout << "Braindead" << std::endl;
 }
 
-Brain &Brain::operator=(const Brain &lhs) {
-	std::copy(lhs._ideas, lhs._ideas + 100, this->_ideas);
+Brain &Brain::operator=(const Brain &rhs) {
+	std::copy(rhs._ideas, rhs._ideas + 100, this->_ideas);
 	std::cout << "A brain is getting copied with copy-assignment operator" << std::endl;
 	return (*this);
 }

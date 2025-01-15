@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 23:48:02 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/14 00:05:11 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:24:28 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ICharacter {
 
 		ICharacter();
 		ICharacter(const ICharacter &base);
-		const ICharacter &operator=(const ICharacter &lhs);
+		const ICharacter &operator=(const ICharacter &rhs);
 
 	public:
 

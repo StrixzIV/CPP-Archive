@@ -27,9 +27,9 @@ Animal::Animal(const Animal &base) {
     std::cout << "Animal of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &lhs) {
+Animal &Animal::operator=(const Animal &rhs) {
 
-    this->_type = std::string(lhs.getType());
+    this->_type = std::string(rhs.getType());
     std::cout << "Animal of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 
     return (*this);

@@ -27,9 +27,9 @@ WrongAnimal::WrongAnimal(const WrongAnimal &base) {
     std::cout << "WrongAnimal of type \"" << this->_type << "\" is being created with copy constructor." << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &lhs) {
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
 
-    this->_type = std::string(lhs.getType());
+    this->_type = std::string(rhs.getType());
     std::cout << "WrongAnimal of type \"" << this->_type << "\" is being created with copy-assignment constructor." << std::endl;
 
     return (*this);

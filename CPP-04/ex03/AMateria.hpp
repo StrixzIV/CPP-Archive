@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 23:48:02 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/01/13 23:52:15 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:24:28 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ class AMateria {
 	protected:
 
 		std::string _type;
-
-		AMateria(const std::string &type);
 		AMateria(const AMateria &base);
 
 	public:
 
+		AMateria(const std::string &type);
 		virtual ~AMateria();
-		const AMateria &operator=(const AMateria &lhs);
+		const AMateria &operator=(const AMateria &rhs);
 
 		const std::string &getType() const;
 
