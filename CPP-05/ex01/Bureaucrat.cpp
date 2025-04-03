@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:40:41 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/03 23:16:36 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 00:33:11 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,13 @@ std::string Bureaucrat::getName() const {
 
 void Bureaucrat::promote(int grade) {
 
-	if (grade < 0)
+	if (grade < 0) {
 		grade = abs(grade);
+	}
 	
-	if (this->grade - grade < 1 || grade > 150)
+	if (this->grade - grade < 1 || grade > 150) {
 		throw GradeTooHighException();
+	}
 
 	this->grade -= grade;
 
@@ -91,11 +93,13 @@ void Bureaucrat::promote(int grade) {
 
 void Bureaucrat::demote(int grade) {
 
-	if (grade < 0)
+	if (grade < 0) {
 		grade = abs(grade);
+	}
 	
-	if (this->grade + grade > 150 || grade > 150)
+	if (this->grade + grade > 150 || grade > 150) {
 		throw GradeTooLowException();
+	}
 
 	this->grade += grade;
 
@@ -103,12 +107,10 @@ void Bureaucrat::demote(int grade) {
 
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Bureaucrat::GradeTooHighException - the input grade is too high (the grade value must be in between 1 to 150)";
 }
 
-const char *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Bureaucrat::GradeTooLowException - the input grade is too low (the grade value must be in between 1 to 150)";
 }

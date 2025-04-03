@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 23:25:21 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/03 23:25:23 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 00:17:29 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,47 @@
 # define FORM_HPP
 
 # include <string>
+# include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form
 {
 	private:
-		const std::string	name;
 		bool				is_signed;
-		const int			grade_auth;
-		const int			grade_exec;
+		const std::string	name;
+		const int			minimum_auth_grade;
+		const int			minimum_exec_grade;
 
 	public:
+
+		Form(Form const &base);
+		Form(const std::string name, const int minimum_auth_grade, const int minimum_exec_grade);
+		Form &operator=(Form const &rhs);
 		~Form();
-		Form(Form const &copy);
-		Form &operator=(Form const &assignment);
-		Form(const std::string name, const int grade_auth, const int grade_exec);
 
 		std::string		getName() const;
 		int				getGradeAuth() const;
 		int				getGradeExec() const;
-		void			beSigned(class Bureaucrat &personnel);
 
-		static std::exception	GradeTooHighException();
-		static std::exception	GradeTooLowException();
+		void			beSigned(Bureaucrat &bureaucrat);
+
+		// Exceptions
+		class GradeTooLowException: public std::exception {
+
+			public:
+				virtual const char *what() const throw();
+
+		};
+
+		class GradeTooHighException: public std::exception {
+
+			public:
+				virtual const char *what() const throw();
+
+		};
 
 };
 
-std::ostream &operator<<(std::ostream &stream, const Form &insert);
+std::ostream &operator<<(std::ostream &lhs, const Form &rhs);
 
 #endif

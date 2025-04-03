@@ -1,93 +1,90 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 00:14:05 by jikaewsi          #+#    #+#             */
+/*   Updated: 2025/04/04 00:36:01 by jikaewsi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
-#include <iostream>
 
-Form::Form(const std::string name, const int grade_auth, const int grade_exec)
-	: name(name)
-	, grade_auth(grade_auth)
-	, grade_exec(grade_exec)
+Form::Form(Form const &base): 
+	name(base.name), minimum_auth_grade(base.minimum_auth_grade), minimum_exec_grade(base.minimum_exec_grade)
 {
-	if (grade_auth > 150 || grade_exec > 150)
+	*this = base;
+}
+
+Form::Form(const std::string name, const int minimum_auth_grade, const int minimum_exec_grade): 
+	name(name), minimum_auth_grade(minimum_auth_grade), minimum_exec_grade(minimum_exec_grade)
+{
+	
+	if (minimum_auth_grade > 150 || minimum_exec_grade > 150) {
 		throw Form::GradeTooLowException();
-	else if (grade_auth < 1 || grade_exec < 1)
+	}
+
+	else if (minimum_auth_grade < 1 || minimum_exec_grade < 1) {
 		throw Form::GradeTooHighException();
-	std::cout << "Form created" << std::endl;
+	}
+
 	this->is_signed = false;
+	std::cout << "A " << this->name << "form has been created." << std::endl;
+
 }
 
-Form::~Form()
-{
-	std::cout << "Form destroyed" << std::endl;
-}
-
-Form::Form(Form const &copy)
-	: name(copy.name)
-	, grade_auth(copy.grade_auth)
-	, grade_exec(copy.grade_exec)
-{
-	*this = copy;
-}
-
-Form	&Form::operator=(Form const &assignment)
-{
-	(void)assignment;
+Form	&Form::operator=(Form const &rhs) {
+	(void) rhs;
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &stream, const Form &insert)
-{
-	return stream << "Form \""
-				  << insert.getName()
-				  << "\"; Authorization grade: "
-				  << insert.getGradeAuth()
-				  << ", Execution grade: "
-				  << insert.getGradeExec();
+std::ostream &operator<<(std::ostream &rhs, const Form &lhs) {
+
+	return rhs << "A " << lhs.getName() 
+		<< "form has a minimum authorization grade of " << lhs.getGradeAuth()
+		<< " and a minimum execution grade of " << lhs.getGradeExec() 
+		<< std::endl;
+		
 }
 
+Form::~Form() {
+	std::cout << "A " << this->name << "form has been invalidated." << std::endl;
+}
 
-std::string	Form::getName() const
-{
+std::string	Form::getName() const {
 	return this->name;
 }
 
-int	Form::getGradeAuth() const
-{
-	return this->grade_auth;
+int	Form::getGradeAuth() const {
+	return this->minimum_auth_grade;
 }
 
-int	Form::getGradeExec() const
-{
-	return this->grade_exec;
+int	Form::getGradeExec() const {
+	return this->minimum_exec_grade;
 }
 
-void	Form::beSigned(Bureaucrat &personnel)
-{
-	if (this->is_signed)
-	{
-		std::cout << "Warn: Form \""
-				  << this->name
-				  << "\" is already signed." << std::endl;
+void	Form::beSigned(Bureaucrat &bureaucrat) {
+
+	if (this->is_signed) {
+		std::cout << "A " << this->name << " form has already been signed";
 		return ;
 	}
-	if (personnel.getGrade() <= grade_auth)
-	{
-		is_signed = true;
-		std::cout << personnel.getName()
-				  << " signed "
-				  << name << std::endl;
-	}
-	else
+
+	if (bureaucrat.getGrade() > this->minimum_auth_grade) {
 		throw Form::GradeTooLowException();
+	}
+
+	this->is_signed = true;
+	std::cout << bureaucrat.getName() << "signed" << this->name << std::endl;
+
 }
 
-std::exception	Form::GradeTooHighException()
-{
-	std::invalid_argument exception( "Exception: Form: Grade too high! (possible range 1 - 150)." );
-	throw exception;
+const char *Form::GradeTooHighException::what() const throw() {
+	return "Form::GradeTooHighException - the input grade is too high (the grade value must be in between 1 to 150)";
 }
 
-std::exception	Form::GradeTooLowException()
-{
-	std::invalid_argument exception( "Exception: Form: Grade too low! (has to be higher than authentication / execution grade)." );
-	throw exception;
+const char *Form::GradeTooLowException::what() const throw() {
+	return "Form::GradeTooLowException - the input grade is too low (the grade value must be in between 1 to 150)";
 }

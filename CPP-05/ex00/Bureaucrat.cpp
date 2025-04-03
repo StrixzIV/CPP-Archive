@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:40:41 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/03 23:16:36 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 00:32:46 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,10 @@ void Bureaucrat::demote(int grade) {
 
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Bureaucrat::GradeTooHighException - the input grade is too high (the grade value must be in between 1 to 150)";
 }
 
-const char *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Bureaucrat::GradeTooLowException - the input grade is too low (the grade value must be in between 1 to 150)";
 }
