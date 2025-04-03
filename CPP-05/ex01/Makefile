@@ -5,7 +5,7 @@ SOURCE_PATH =
 INCLUDE_PATH = 
 BUILD_PATH = build
 
-CXXFILES = Bureaucrat.cpp  main.cpp
+CXXFILES = Bureaucrat.cpp  Form.cpp  main.cpp
 
 NAME = bureaucrat
 

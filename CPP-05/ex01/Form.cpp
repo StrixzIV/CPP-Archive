@@ -6,7 +6,7 @@
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 00:14:05 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 00:36:01 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:07:58 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Form::Form(const std::string name, const int minimum_auth_grade, const int minim
 	}
 
 	this->is_signed = false;
-	std::cout << "A " << this->name << "form has been created." << std::endl;
+	std::cout << "A " << this->name << " form has been created." << std::endl;
 
 }
 
@@ -43,14 +43,14 @@ Form	&Form::operator=(Form const &rhs) {
 std::ostream &operator<<(std::ostream &rhs, const Form &lhs) {
 
 	return rhs << "A " << lhs.getName() 
-		<< "form has a minimum authorization grade of " << lhs.getGradeAuth()
+		<< " form has a minimum authorization grade of " << lhs.getGradeAuth()
 		<< " and a minimum execution grade of " << lhs.getGradeExec() 
 		<< std::endl;
 		
 }
 
 Form::~Form() {
-	std::cout << "A " << this->name << "form has been invalidated." << std::endl;
+	std::cout << "A " << this->name << " form has been invalidated." << std::endl;
 }
 
 std::string	Form::getName() const {
@@ -77,7 +77,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat) {
 	}
 
 	this->is_signed = true;
-	std::cout << bureaucrat.getName() << "signed" << this->name << std::endl;
+	std::cout << bureaucrat.getName() << " signed " << this->name << std::endl;
 
 }
 

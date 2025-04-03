@@ -6,7 +6,7 @@
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 23:25:21 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 00:17:29 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:01:07 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+
 # include "Bureaucrat.hpp"
 
 class Form
@@ -36,7 +37,7 @@ class Form
 		int				getGradeAuth() const;
 		int				getGradeExec() const;
 
-		void			beSigned(Bureaucrat &bureaucrat);
+		void			beSigned(class Bureaucrat &bureaucrat);
 
 		// Exceptions
 		class GradeTooLowException: public std::exception {

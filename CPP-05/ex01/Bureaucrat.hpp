@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:41:54 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/03 23:09:58 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:01:52 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <cmath>
 # include <string>
 # include <iostream>
+
+# include "Form.hpp"
 
 class Bureaucrat {
 
@@ -36,6 +38,7 @@ class Bureaucrat {
 
 		void promote(int grade);
 		void demote(int grade);
+		void signForm(class Form &form);
 
 		// Exceptions
 		class GradeTooLowException: public std::exception {

@@ -6,7 +6,7 @@
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:40:41 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 00:33:11 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:05:37 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Bureaucrat::promote(int grade) {
 
 	this->grade -= grade;
 
-	std::cout << this->name << "is getting promoted to grade " << this->grade << std::endl;
+	std::cout << this->name << " is getting promoted to grade " << this->grade << std::endl;
 
 }
 
@@ -103,7 +103,19 @@ void Bureaucrat::demote(int grade) {
 
 	this->grade += grade;
 
-	std::cout << this->name << "is getting demoted to grade " << this->grade << std::endl;
+	std::cout << this->name << " is getting demoted to grade " << this->grade << std::endl;
+
+}
+
+void Bureaucrat::signForm(Form &form) {
+
+	try {
+		form.beSigned(*this);
+	}
+
+	catch (std::exception &exception) {
+		std::cerr << this->name << " couldn't sign " << form.getName() << " because " << exception.what() << std::endl;
+	}
 
 }
 

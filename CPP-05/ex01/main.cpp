@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 23:02:20 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/03 23:17:48 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:12:20 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,15 @@ int main() {
 
 	try {
 
-		// Constructor test
-		Bureaucrat poomk("Poom K.", 1);
-		Bureaucrat supun("Supun", 150);
+		Bureaucrat	supun("Supun", 69);
+		Form		physics_lab_budget_form("Physics Lab project's budget", 42, 43);
 
-		// Promote-Demote
-		std::cout << poomk << std::endl;
-		std::cout << supun << std::endl;
+		std::cout << physics_lab_budget_form << std::endl;
 
-		supun.promote(5);
-		poomk.demote(5);
+		supun.promote(27);
+		supun.signForm(physics_lab_budget_form);
 
-		std::cout << poomk << std::endl;
-		std::cout << supun << std::endl;
-
-		// Exceptions - Invalid constructor
-		// Bureaucrat poomk2("Poom K. #2", 0);
-		// Bureaucrat poomk3("Poom K. #3", -1);
-		// Bureaucrat supun2("Supun #2", 69420);
-
-		// Exceptions - Invalid promote-demote
-		// Bureaucrat poomk4("Poom K. #4", 1);
-		// Bureaucrat supun3("Supun #3", 150);
-
-		// poomk4.promote(1);
-		// supun3.demote(1);
+		std::cout << physics_lab_budget_form << std::endl;
 
 	}
 
