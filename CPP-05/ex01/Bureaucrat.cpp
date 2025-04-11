@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:40:41 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 01:05:37 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:35:03 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,30 @@ int Bureaucrat::getGrade() const {
 
 std::string Bureaucrat::getName() const {
 	return this->name;
+}
+
+void Bureaucrat::increment_grade() {
+
+	if (this->grade <= 1) {
+		throw GradeTooHighException();
+	}
+
+	this->grade--;
+
+	std::cout << this->name << " is getting promoted to grade " << this->grade << std::endl;
+
+}
+
+void Bureaucrat::decrement_grade() {
+
+	if (this->grade <= 150) {
+		throw GradeTooLowException();
+	}
+
+	this->grade++;
+
+	std::cout << this->name << " is getting demoted to grade " << this->grade << std::endl;
+
 }
 
 void Bureaucrat::promote(int grade) {
