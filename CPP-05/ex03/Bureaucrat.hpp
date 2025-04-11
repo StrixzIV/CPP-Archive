@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:41:54 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/05 15:40:42 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:38:32 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class Bureaucrat {
 		int getGrade() const;
 		std::string getName() const;
 
+		void increment_grade();
+		void decrement_grade();
 		void promote(int grade);
 		void demote(int grade);
 		void signForm(class AForm &form);
