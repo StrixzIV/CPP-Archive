@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 23:02:20 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 01:12:20 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:38:15 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int main() {
 
 		supun.promote(27);
 		supun.signForm(physics_lab_budget_form);
-
-		std::cout << physics_lab_budget_form << std::endl;
 
 	}
 

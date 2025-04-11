@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 00:14:05 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/04 01:07:58 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:40:49 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ std::ostream &operator<<(std::ostream &rhs, const Form &lhs) {
 
 	return rhs << "A " << lhs.getName() 
 		<< " form has a minimum authorization grade of " << lhs.getGradeAuth()
-		<< " and a minimum execution grade of " << lhs.getGradeExec() 
-		<< std::endl;
+		<< " and a minimum execution grade of " << lhs.getGradeExec();
 		
 }
 
