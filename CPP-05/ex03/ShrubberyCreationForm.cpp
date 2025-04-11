@@ -6,7 +6,7 @@
 /*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:20:38 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/05 15:41:19 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:43:37 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ std::ostream &operator<<(std::ostream &rhs, const ShrubberyCreationForm &lhs) {
 
 	return rhs << "A " << lhs.getName() 
 		<< "'s ShrubberyCreationForm has a minimum authorization grade of " << lhs.getGradeAuth()
-		<< " and a minimum execution grade of " << lhs.getGradeExec() 
-		<< std::endl;
+		<< " and a minimum execution grade of " << lhs.getGradeExec();;
 		
 }
 
