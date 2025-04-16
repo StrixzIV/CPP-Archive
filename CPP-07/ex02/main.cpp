@@ -6,7 +6,7 @@
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 00:38:19 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/17 01:54:22 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/17 02:21:33 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ int main() {
     for (size_t idx = 0; idx < MAX_VAL; idx++) {
         numbers[idx] = rand();
     }
+
+	std::cout << "Display test" << std::endl;
+	std::cout << numbers << std::endl;
 
     std::cout << "Cleaning up..." << std::endl;
     delete[] mirror;
