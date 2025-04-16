@@ -6,7 +6,7 @@
 /*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 00:59:19 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/17 01:56:22 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/17 02:19:47 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,11 @@ std::ostream &operator<<(std::ostream &lhs, Array<DataType> &rhs) {
 
 	lhs << "[";
 
-	for (size_t idx = 0; idx < rhs.size; idx++) {
+	for (size_t idx = 0; idx < rhs.length(); idx++) {
 
-		lhs << rhs.values[idx];
+		lhs << rhs[idx];
 
-		if (idx < rhs.size - 1) {
+		if (idx < rhs.length() - 1) {
 			lhs << ",";
 		}
 
