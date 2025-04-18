@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 00:59:19 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/17 02:19:47 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:21:19 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Array<DataType>::Array() {
 }
 
 template<typename DataType>
-Array<DataType>::Array(size_t size): values(NULL) {
+Array<DataType>::Array(unsigned int size): values(NULL) {
 
-	if (size == SIZE_T_MAX) {
+	if (size == UINT_MAX) {
 		throw IndexOverflowException();
 	}
 
@@ -35,7 +35,7 @@ Array<DataType>::Array(const Array &base): size(base.size), values(base.values) 
 
 	this->values = new DataType[this->size];
 
-	for (size_t idx = 0; idx < this->size; idx++) {
+	for (unsigned int idx = 0; idx < this->size; idx++) {
 		this->values[idx] = base.values[idx];
 	}
 
@@ -64,7 +64,7 @@ Array<DataType> &Array<DataType>::operator=(const Array &rhs) {
 	this->size = rhs.size;
 	this->values = new DataType[this->size];
 
-	for (size_t idx = 0; idx < this->size; idx++) {
+	for (unsigned int idx = 0; idx < this->size; idx++) {
 		this->values[idx] = rhs.values[idx];
 	}
 
@@ -73,7 +73,7 @@ Array<DataType> &Array<DataType>::operator=(const Array &rhs) {
 }
 
 template<typename DataType>
-DataType Array<DataType>::operator[](size_t idx) const {
+DataType Array<DataType>::operator[](unsigned int idx) const {
 
 	if (idx >= this->size) {
 		throw OutOfBoundException();
@@ -84,7 +84,7 @@ DataType Array<DataType>::operator[](size_t idx) const {
 }
 
 template<typename DataType>
-DataType &Array<DataType>::operator[](size_t idx) {
+DataType &Array<DataType>::operator[](unsigned int idx) {
 
 	if (idx >= this->size) {
 		throw OutOfBoundException();
@@ -99,7 +99,7 @@ std::ostream &operator<<(std::ostream &lhs, Array<DataType> &rhs) {
 
 	lhs << "[";
 
-	for (size_t idx = 0; idx < rhs.length(); idx++) {
+	for (unsigned int idx = 0; idx < rhs.length(); idx++) {
 
 		lhs << rhs[idx];
 
@@ -116,7 +116,7 @@ std::ostream &operator<<(std::ostream &lhs, Array<DataType> &rhs) {
 }
 
 template<typename DataType>
-size_t Array<DataType>::length() const {
+unsigned int Array<DataType>::length() const {
 	return this->size;
 }
 
