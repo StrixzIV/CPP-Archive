@@ -3,37 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 00:38:28 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/17 01:57:46 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:22:38 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+# include <limits.h>
+
+# include <ctime>
+# include <cstdlib>
 # include <iostream>
 
 template<typename DataType>
 class Array {
 
 	private:
-		size_t size;
+		unsigned int size;
 		DataType *values;
 
 	public:
 
 		Array<DataType>();
-		Array<DataType>(size_t size);
+		Array<DataType>(unsigned int size);
 		Array<DataType>(const Array &base);
 		~Array();
 
 		Array<DataType> &operator=(const Array<DataType> &rhs);
-		DataType operator[](size_t i) const;
-		DataType &operator[](size_t i);
+		DataType operator[](unsigned int i) const;
+		DataType &operator[](unsigned int i);
 
-		size_t length() const;
+		unsigned int length() const;
 
 		class OutOfBoundException: public std::exception {
 			public:

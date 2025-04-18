@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
+/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 00:38:19 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/17 02:21:33 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:21:19 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main() {
     srand(static_cast<unsigned>(time(NULL)));
 
     std::cout << "Filling both Array and mirror with random values..." << std::endl;
-    for (size_t idx = 0; idx < MAX_VAL; idx++) {
+    for (unsigned int idx = 0; idx < MAX_VAL; idx++) {
         int value = rand();
         numbers[idx] = value;
         mirror[idx] = value;
@@ -35,7 +35,7 @@ int main() {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
 
-        for (size_t idx = 0; idx < MAX_VAL; ++idx) {
+        for (unsigned int idx = 0; idx < MAX_VAL; ++idx) {
             if (tmp[idx] != numbers[idx] || test[idx] != tmp[idx]) {
                 std::cerr << "Copy test failed at index " << idx << std::endl;
                 return 1;
@@ -45,7 +45,7 @@ int main() {
     }
 
     std::cout << "Verifying values after scope to ensure deep copy..." << std::endl;
-    for (size_t idx = 0; idx < MAX_VAL; idx++) {
+    for (unsigned int idx = 0; idx < MAX_VAL; idx++) {
         if (mirror[idx] != numbers[idx]) {
             std::cerr << "Error: Value mismatch at index " << idx << "! Expected " 
                       << mirror[idx] << ", got " << numbers[idx] << std::endl;
@@ -56,7 +56,7 @@ int main() {
     std::cout << "Testing overflow size..." << std::endl;
 	
     try {
-        Array<int> test(SIZE_T_MAX);
+        Array<int> test(UINT_MAX);
     } 
 	
 	catch (const std::exception& e) {
@@ -82,7 +82,7 @@ int main() {
     }
 
     std::cout << "Refilling array with new random values..." << std::endl;
-    for (size_t idx = 0; idx < MAX_VAL; idx++) {
+    for (unsigned int idx = 0; idx < MAX_VAL; idx++) {
         numbers[idx] = rand();
     }
 
