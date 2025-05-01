@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jikaewsi <jikaewsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jikaewsi <strixz.self@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:37:01 by jikaewsi          #+#    #+#             */
-/*   Updated: 2025/04/30 13:40:26 by jikaewsi         ###   ########.fr       */
+/*   Updated: 2025/04/30 16:36:52 by jikaewsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include <list>
 # include <ctime>
+# include <deque>
 # include <vector>
 # include <string>
 # include <sstream>
 # include <utility>
+# include <iostream>
 # include <algorithm>
 # include <stdexcept>
 
@@ -34,10 +36,12 @@ class FJMI {
         T insert_pos;
         const T sequence;
 
+        double elasped;
+
         FJMI(const FJMI &base);
         FJMI &operator=(const FJMI &rhs);
 
-        static const T set_sequence(std::vector<char *> argv);
+        static const T set_sequence(std::vector<std::string> argv);
         static void merge_sort(typename U::iterator start, typename U::iterator end);
         static void merge(typename U::iterator start, typename U::iterator mid, typename U::iterator end);
         static T insert_sequence(size_t n);
@@ -59,10 +63,8 @@ class FJMI {
 
     public:
 
-        double elasped;
-
         FJMI();
-        FJMI(std::vector<char *> argv);
+        FJMI(std::vector<std::string> argv);
         virtual ~FJMI();
 
         void merge_insertion_sort();
@@ -73,22 +75,13 @@ class FJMI {
 
 };
 
-template<typename Container>
-class PmergeMe: public FJMI<Container, Container<std::pair<int, int>>> {
-
-    public:
-        PmergeMe(std::vector<char *> argv);
-        ~PmergeMe();
-
-};
-
 // -----------------------------------------
 
 template<typename T, typename U>
 FJMI<T, U>::FJMI() {}
 
 template<typename T, typename U>
-FJMI<T, U>::FJMI(std::vector<char *> argv) {
+FJMI<T, U>::FJMI(std::vector<std::string> argv) {
     this->sequence = set_sequence(argv);
 }
 
@@ -132,16 +125,16 @@ const T &FJMI<T, U>::get_sequence() const {
 }
 
 template<typename T, typename U>
-const T FJMI<T, U>::set_sequence(std::vector<char *> argv) {
+const T FJMI<T, U>::set_sequence(std::vector<std::string> argv) {
 
     int n;
     std::string arg;
     
     T sequence;
 
-    for (size_t idx = 0; argv[idx] != NULL; idx++) {
+    for (size_t idx = 0; idx < argv.size(); idx++) {
 
-        arg = std::string(argv[idx]);
+        arg = argv[idx];
         
         if (arg.empty()) {
             throw std::runtime_error("Invalid args.");
@@ -195,7 +188,7 @@ void FJMI<T, U>::make_sorted_pairs() {
         int x = *iter;
         iter++;
 
-        if (iter != get_sequence.end()) {
+        if (iter != get_sequence().end()) {
 
             int y = *iter;
             iter++;
@@ -268,7 +261,7 @@ template<typename T, typename U>
 void FJMI<T, U>::halfsort() {
 
     // Step #2
-    FJMI<T, U>::merge_sort(get_pairs().begin(), get_pairs.end());
+    FJMI<T, U>::merge_sort(get_pairs().begin(), get_pairs().end());
 
     typename U::const_iterator iter = get_pairs().begin();
     get_sorted().push_back(iter->second);
@@ -296,7 +289,7 @@ void FJMI<T, U>::insertion_sort() {
     for (
         typename T::iterator iter = get_insert_pos().begin();
         iter != get_insert_pos().end();
-        iter++;
+        iter++
     ) {
 
         to_insert = get_unsorted().begin();
@@ -327,7 +320,7 @@ int FJMI<T, U>::jacobsthal(size_t n) {
         return (n);
     }
 
-    return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+    return jacobsthal(n - 1) + (2 * jacobsthal(n - 2));
 
 }
 
@@ -352,7 +345,9 @@ typename T::iterator FJMI<T, U>::binary_search(int n, typename T::iterator left,
     }
 
     if (n > *left) {
-        return std::next(left);
+        typename T::iterator tmp = left;
+        ++tmp;
+        return tmp;
     }
 
     return left;
@@ -374,7 +369,7 @@ T FJMI<T, U>::insert_sequence(size_t n) {
     size_t value = FJMI<T, U>::jacobsthal(idx);
 
     while (value < n - 1) {
-        jacobsthal_seq.push_vack(value);
+        jacobsthal_seq.push_back(value);
         value = FJMI<T, U>::jacobsthal(++idx);
     }
 
@@ -401,6 +396,45 @@ T FJMI<T, U>::insert_sequence(size_t n) {
 
     return insert_seq;
 
+}
+
+template<typename T, typename U>
+void FJMI<T, U>::print_before_sort() {
+
+    std::cout << "Before sorting: " << std::endl;
+
+    for (
+        typename T::const_iterator iter = get_sequence().begin();
+        iter != get_sequence().end();
+        iter++
+    ) {
+        std::cout << *iter << ", ";
+    }
+
+    std::cout << std::endl;
+
+}
+
+template<typename T, typename U>
+void FJMI<T, U>::print_after_sort() {
+
+    std::cout << "After sorting: " << std::endl;
+
+    for (
+        typename T::const_iterator iter = get_sorted().begin();
+        iter != get_sorted().end();
+        iter++
+    ) {
+        std::cout << *iter << ", ";
+    }
+
+    std::cout << std::endl;
+
+}
+
+template<typename T, typename U>
+void FJMI<T, U>::print_elasped() {
+    std::cout << "Time elasped: " << this->elasped << " seconds" << std::endl;
 }
 
 #endif
